@@ -24,3 +24,9 @@ pip install -r requirements.txt
 python app.py
 
 
+## Database Setup
+
+1. Start XAMPP (Apache & MySQL)
+2. Open http://localhost/phpmyadmin
+3. Create database: loan_prediction_db
+4. Import file: databases/loan_prediction_db.sql
