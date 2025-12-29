@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Predictions</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Saved Loan Predictions</h2>
+
+<table id="predTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Prediction</th>
+            <th>Label</th>
+            <th>Prob Default</th>
+            <th>Prob Paid</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+fetch("http://127.0.0.1:5000/predictions")
+    .then(res => res.json())
+    .then(data => {
+        const tbody = document.querySelector("#predTable tbody");
+
+        data.forEach(row => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${row.id}</td>
+                <td>${row.prediction}</td>
+                <td>${row.label}</td>
+                <td>${row.prob_default}</td>
+                <td>${row.prob_paid}</td>
+                <td>${row.created_at}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

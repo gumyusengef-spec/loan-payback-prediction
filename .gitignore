@@ -1,0 +1,13 @@
+__pycache__/
+.env
+*.log
+*.sqlite3
+.idea/
+.vscode/
+catboost_info/
+
+
+best_model.pkl
+scaler.pkl
+label_encoders.pkl
+feature_columns.pkl

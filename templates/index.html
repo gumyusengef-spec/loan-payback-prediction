@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Payback Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1 class="title">🏦 Loan Payback Prediction System</h1>
+
+<div class="container">
+
+    <!-- ===== SINGLE PREDICTION (LEFT) ===== -->
+    <div class="card">
+        <h2>Single Loan Prediction</h2>
+
+        <form id="predictForm"></form>
+
+        <button id="predictBtn">Predict</button>
+
+        <pre id="singleResult"></pre>
+        <button onclick="exportSingle()">Export Single Prediction</button>
+       
+    </div>
+
+
+ 
+
+    <!-- ===== BATCH PREDICTION (RIGHT) ===== -->
+    <div class="card">
+        <h2>Batch Prediction</h2>
+
+<button onclick="exportBatch()">Export Batch Predictions</button>
+
+        <input type="file" id="fileInput">
+        <button onclick="batchPredict()">Upload & Predict</button>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Prediction</th>
+                        <th>Default Prob</th>
+                        <th>Paid Prob</th>
+                    </tr>
+                </thead>
+                <tbody id="batchResult"></tbody>
+            </table>
+
+           
+
+        </div>
+    </div>
+
+    
+</div>
+
+
+
+
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
